@@ -1,21 +1,16 @@
 {
   "name": "ember-inplace-edit",
   "version": "0.0.1",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember cli addon for inplace editing",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "scripts": {
-    "start": "ember server",
-    "build": "ember build",
-    "test": "ember test"
-  },
-  "repository": "",
+  "repository": "https://github.com/anilmaurya/ember-inplace-edit",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "anilmaurya",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",
@@ -33,7 +28,9 @@
     "ember-export-application-global": "^1.0.2"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "inplace",
+    "editing"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
