@@ -1,0 +1,20 @@
+{{#if isEditing}}
+  <form {{action "doneEditing" on="submit"}}>
+    {{#if isTypeInput}}
+      {{input value=value}}
+    {{else}}
+      {{textarea value=value}}
+    {{/if}}
+  </form>
+{{else}}
+  <span>
+    {{#if displayPlaceholder}}
+      <div class="placeholder">
+        {{placeholder}}
+      </div>
+    {{else}}
+      {{text}}
+    {{/if}}
+  </span>
+  <a {{action "toggleEditing"}} class="fa fa-edit"></a>
+{{/if}}
