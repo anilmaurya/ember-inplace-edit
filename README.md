@@ -1,25 +1,53 @@
 # Ember-inplace-edit
 
-This README outlines the details of collaborating on this Ember addon.
+This is Ember cli addon for inplace editing
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+* `npm install --save-dev ember-inplace-edit`
 
-## Running
+## Usage
+ This addon provides an `ember-inplace-edit` component.
+ 
+```handlebars
+{{ember-inplace-edit 
+  text=text
+  value=value
+  type="input" 
+  action="saveUser" 
+}}
+```
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+### Properties
 
-## Running Tests
+<table width="100%">
+  <tr>
+  	<th valign="top" width="120px" align="left">Property</th>
+  	<th valign="top" align="left">Description</th>
+  </tr>
+  <tr>
+    <td valign="top"><code>text</code></td>
+    <td valign="top">text to be displayed before/after editing, it can be controller property wrapping value</td>
+  </tr>
+  <tr>
+    <td valign="top"><code>value</code></td>
+    <td valign="top">value to be edited</td>
+  </tr>
+  <tr>
+    <td valign="top"><code>type</code></td>
+    <td valign="top">input/textarea</td>
+  </tr>
+</table>
 
-* `ember test`
-* `ember test --server`
+### Actions
 
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+<table width="100%">
+  <tr>
+  	<th valign="top" width="160px" align="left">Action</th>
+  	<th valign="top" align="left">Description</th>
+  </tr>
+  <tr>
+    <td valign="top"><code>action</code></td>
+    <td valign="top">action to be called after editing is done</tr>
+  </tr>
+</table>
