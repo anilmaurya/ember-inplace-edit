@@ -18,6 +18,21 @@ export default Ember.Component.extend({
     this.focus();
   },
 
+  keyPress: function(event){
+    if(event.keyCode == 13){
+      this.toggleProperty('isEditing');
+      this.sendAction();
+    }
+  },
+
+  mouseEnter: function(){
+    $("#"+this.get("elementId")+" .edit").removeClass('hide');
+  },
+
+  mouseLeave: function(){
+    $("#"+this.get("elementId")+" .edit").addClass('hide');
+  },
+
   height: null,
 
   focus: function(){
@@ -51,8 +66,10 @@ export default Ember.Component.extend({
       this.toggleProperty('isEditing');
     },
     doneEditing: function(){
-      this.toggleProperty('isEditing');
-      this.sendAction();
+      if(this.get('isEditing') == true){
+        this.toggleProperty('isEditing');
+        this.sendAction();
+      }
     }
   }
 });

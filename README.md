@@ -13,7 +13,10 @@ This is Ember cli addon for inplace editing
 {{ember-inplace-edit 
   text=text
   value=value
-  type="input" 
+  type="input"
+  placeholder="Add Placeholder content"
+  placeholderClass="placeholder div class"
+  editIcon="Edit icon class, ex: fa fa-edit" 
   action="saveUser" 
 }}
 ```

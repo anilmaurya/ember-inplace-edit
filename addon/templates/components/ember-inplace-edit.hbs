@@ -9,12 +9,18 @@
 {{else}}
   <span>
     {{#if displayPlaceholder}}
-      <div class="placeholder">
+      <div {{bind-attr class=placeholderClass}}>
         {{placeholder}}
       </div>
     {{else}}
       {{text}}
     {{/if}}
   </span>
-  <a {{action "toggleEditing"}} class="fa fa-edit"></a>
+  <span class="edit hide">
+    {{#if editIcon}}
+      <a {{action "toggleEditing"}} {{bind-attr class=editIcon}}></a>
+    {{else}}
+      <a {{action "toggleEditing"}} >edit</a>
+    {{/if}}
+  </span>
 {{/if}}
