@@ -40,6 +40,18 @@ This is Ember cli addon for inplace editing
     <td valign="top"><code>type</code></td>
     <td valign="top">input/textarea</td>
   </tr>
+  <tr>
+    <td valign="top"><code>placeholder</code></td>
+    <td valign="top">placeholder content</td>
+  </tr>
+  <tr>
+    <td valign="top"><code>placeholderClass</code></td>
+    <td valign="top">placeholder class (optional)</td>
+  </tr>
+  <tr>
+    <td valign="top"><code>editIcon</code></td>
+    <td valign="top">Edit icon class, ex: fa fa-edit (optional)</td>
+  </tr>
 </table>
 
 ### Actions
