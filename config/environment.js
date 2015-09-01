@@ -40,7 +40,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = 'ember-inplace-edit/dist/';
   }
 
   return ENV;
