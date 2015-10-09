@@ -7,7 +7,7 @@
     {{/if}}
   </form>
 {{else}}
-  <span>
+  <span class='edit-box' {{action "toggleEditing"}}>
     {{#if displayPlaceholder}}
       <div {{bind-attr class=placeholderClass}}>
         {{placeholder}}
