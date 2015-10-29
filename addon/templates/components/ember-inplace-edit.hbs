@@ -9,7 +9,7 @@
 {{else}}
   <span class='edit-box' {{action "toggleEditing"}}>
     {{#if displayPlaceholder}}
-      <div {{bind-attr class=placeholderClass}}>
+      <div class={{placeholderClass}}>
         {{placeholder}}
       </div>
     {{else}}
@@ -18,7 +18,7 @@
   </span>
   <span class="edit hide">
     {{#if editIcon}}
-      <a {{action "toggleEditing"}} {{bind-attr class=editIcon}}></a>
+      <a {{action "toggleEditing"}} class={{editIcon}}></a>
     {{else}}
       <button {{action "toggleEditing"}} >edit</button>
     {{/if}}
