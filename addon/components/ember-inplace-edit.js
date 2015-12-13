@@ -3,6 +3,7 @@ import layout from '../templates/components/ember-inplace-edit';
 
 export default Ember.Component.extend({
   layout: layout,
+  type: 'input',
 
   didInsertElement: function(){
     var _this = this;
