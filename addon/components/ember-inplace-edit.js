@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/ember-inplace-edit';
 
+var $ = Ember.$;
+
 export default Ember.Component.extend({
   layout: layout,
   type: 'input',
@@ -20,7 +22,7 @@ export default Ember.Component.extend({
   },
 
   keyPress: function(event){
-    if(event.keyCode == 13){
+    if(event.keyCode === 13){
       this.toggleProperty('isEditing');
       this.sendAction();
     }
@@ -50,7 +52,7 @@ export default Ember.Component.extend({
         // Set height of editable div
          _this.set('height', $("#"+_this.get("elementId")).parent().css('height'));
       }
-     })
+    });
   }.observes('isEditing'),
 
   isTypeInput: function(){
@@ -68,7 +70,7 @@ export default Ember.Component.extend({
       this.toggleProperty('isEditing');
     },
     doneEditing: function(){
-      if(this.get('isEditing') == true){
+      if(this.get('isEditing') === true){
         this.toggleProperty('isEditing');
         this.sendAction();
       }
