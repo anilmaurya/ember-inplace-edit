@@ -22,7 +22,7 @@ export default Ember.Component.extend({
   },
 
   keyPress: function(event){
-    if(event.keyCode === 13){
+    if(event.keyCode === 13 && this.get('type') !== "textarea"){
       this.toggleProperty('isEditing');
       this.sendAction();
     }
