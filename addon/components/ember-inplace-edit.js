@@ -38,7 +38,7 @@ export default Ember.Component.extend({
 
   height: null,
 
-  focus: function(){
+  focus: Ember.observer('isEditing', function() {
     var _this = this;
     Ember.run.scheduleOnce('afterRender', this, function(){
       if(_this.get('isEditing')){
@@ -53,17 +53,17 @@ export default Ember.Component.extend({
          _this.set('height', $("#"+_this.get("elementId")).parent().css('height'));
       }
     });
-  }.observes('isEditing'),
+  }),
 
-  isTypeInput: function(){
+  isTypeInput: Ember.computed('type', function() {
     return this.get('type') === "input";
-  }.property('type'),
+  }),
 
-  displayPlaceholder: function(){
+  displayPlaceholder: Ember.computed('text', function() {
     var text = this.get('text');
     text = text && text.replace( / +/g, ' '); // replace mutiple space with single space
     return text === undefined || text === null || text === "" || text === " ";
-  }.property('text'),
+  }),
 
   actions: {
     toggleEditing: function(){
