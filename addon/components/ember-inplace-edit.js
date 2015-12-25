@@ -7,20 +7,6 @@ export default Ember.Component.extend({
   layout: layout,
   type: 'input',
 
-  didInsertElement: function(){
-    var _this = this;
-    if(this.get('type') === 'input'){
-      $('body').on('focusout', "#"+this.get("elementId")+" input", function(){
-        _this.send('doneEditing');
-      });
-    }else{
-      $('body').on('focusout', "#"+this.get("elementId")+" textarea", function(){
-        _this.send('doneEditing');
-      });
-    }
-    this.focus();
-  },
-
   keyPress: function(event){
     if(event.keyCode === 13 && this.get('type') !== "textarea"){
       this.send('doneEditing');
@@ -45,6 +31,12 @@ export default Ember.Component.extend({
         }else{
           this.$('textarea').css('height', this.get('height')).focus();
         }
+
+        var _this = this;
+
+        this.$(this.get('type')).on('focusout', function(){
+          _this.send('doneEditing');
+        });
       }else{
         // Set height of editable div
          this.set('height', this.$().parent().css('height'));
