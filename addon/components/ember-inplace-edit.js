@@ -58,14 +58,14 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    toggleEditing: function(){
+    startEditing: function(){
       if (this.get('disabled') === false) {
-        this.toggleProperty('isEditing');
+        this.set('isEditing', true);
       }
     },
     doneEditing: function(){
       if(this.get('isEditing') === true){
-        this.toggleProperty('isEditing');
+        this.set('isEditing', false);
         this.sendAction('action', this.get('model'), this.get('value'));
       }
     }
