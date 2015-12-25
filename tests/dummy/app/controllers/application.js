@@ -25,8 +25,9 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    updateUser() {
-      console.log('User updated, but which user??');
+    updateUser(model, newValue) {
+      console.log('User updated: ', model);
+      console.log('New value: ', newValue);
     }
   }
 });

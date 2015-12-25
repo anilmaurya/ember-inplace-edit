@@ -71,7 +71,7 @@ export default Ember.Component.extend({
     doneEditing: function(){
       if(this.get('isEditing') === true){
         this.toggleProperty('isEditing');
-        this.sendAction();
+        this.sendAction('action', this.get('model'), this.get('value'));
       }
     }
   }
