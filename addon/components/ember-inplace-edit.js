@@ -7,10 +7,16 @@ export default Ember.Component.extend({
   layout: layout,
   type: 'input',
   disabled: false,
+  originalValue: null,
 
-  keyPress: function(event){
+  keyUp: function(event){
     if(event.keyCode === 13 && this.get('type') !== "textarea"){
       this.send('doneEditing');
+    }
+
+    if (event.keyCode === 27) {
+      this.set('value', this.get('originalValue'));
+      this.set('isEditing', false);
     }
   },
 
@@ -27,6 +33,8 @@ export default Ember.Component.extend({
   focus: Ember.observer('isEditing', function() {
     Ember.run.later(this, function(){
       if(this.get('isEditing')){
+        this.set('originalValue', this.get('value'));
+
         if(this.get('type') === 'input'){
           this.$('input').focus();
         }else{
