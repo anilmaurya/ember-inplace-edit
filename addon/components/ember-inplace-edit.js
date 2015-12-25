@@ -39,7 +39,7 @@ export default Ember.Component.extend({
 
   focus: Ember.observer('isEditing', function() {
     var _this = this;
-    Ember.run.scheduleOnce('afterRender', this, function(){
+    Ember.run.later(this, function(){
       if(_this.get('isEditing')){
         if(_this.get('type') === 'input'){
           $("#"+_this.get("elementId")+" input").focus();
