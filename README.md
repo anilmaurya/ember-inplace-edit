@@ -75,3 +75,16 @@ This is Ember cli addon for inplace editing
     <td valign="top">action to be called after editing is done (optionally attached model and the new value will be sent as a parameter)</tr>
   </tr>
 </table>
+
+### Events
+
+<table width="100%">
+  <tr>
+  	<th valign="top" width="165px" align="left">Event</th>
+  	<th valign="top" align="left">Description</th>
+  </tr>
+  <tr>
+    <td valign="top"><code>on-activated</code></td>
+    <td valign="top">it fires when the input/textarea has been inserted into the DOM (params: component container, optionally attached model)</tr>
+  </tr>
+</table>

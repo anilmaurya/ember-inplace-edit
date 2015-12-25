@@ -33,6 +33,8 @@ export default Ember.Component.extend({
           this.$('textarea').css('height', this.get('height')).focus();
         }
 
+        this.sendAction('on-activated', this.$(), this.get('model'));
+
         var _this = this;
 
         this.$(this.get('type')).on('focusout', function(){

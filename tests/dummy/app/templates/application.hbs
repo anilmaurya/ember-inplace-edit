@@ -6,8 +6,19 @@
   value=sampleText1
   placeholder="Add Placeholder content"
   placeholderClass="placeholder div class"
-  editIcon="Edit icon class, ex: fa fa-edit"
+  editIcon="hidden"
 }}
+
+<h3>Handle activated event</h3>
+{{ember-inplace-edit
+  text=sampleText1
+  value=sampleText1
+  placeholder="Add Placeholder content"
+  placeholderClass="placeholder div class"
+  editIcon="hidden"
+  on-activated="inputActivated"
+}}
+
 
 <h3>Disabled</h3>
 {{ember-inplace-edit

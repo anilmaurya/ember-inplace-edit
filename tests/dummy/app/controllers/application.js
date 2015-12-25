@@ -28,6 +28,10 @@ export default Ember.Controller.extend({
     updateUser(model, newValue) {
       console.log('User updated: ', model);
       console.log('New value: ', newValue);
+    },
+
+    inputActivated($container) {
+      $container.addClass('activated');
     }
   }
 });
