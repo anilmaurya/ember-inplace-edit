@@ -62,7 +62,7 @@ export default Ember.Component.extend({
   }),
 
   displayPlaceholder: Ember.computed('text', function() {
-    var text = this.get('text');
+    var text = this.get('text').toString();
     text = text && text.replace(/ +/g, ' '); // replace mutiple space with single space
     return text === undefined || text === null || text === "" || text === " ";
   }),

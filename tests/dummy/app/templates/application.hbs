@@ -38,6 +38,19 @@
   }}
 </div>
 
+<h3>Using nl2br helper to preserve line breaks in HTML</h3>
+<div class="multi-line-text-wrapper">
+  {{ember-inplace-edit
+    text=(nl2br multiLineText2)
+    value=multiLineText2
+    type="textarea"
+    placeholder="Add Placeholder content"
+    placeholderClass="placeholder div class"
+    editIcon="Edit icon class, ex: fa fa-edit"
+  }}
+</div>
+
+
 <h2>Multiple Inputs</h2>
 <h3>Users:</h3>
 <ul>
