@@ -31,28 +31,30 @@ export default Ember.Component.extend({
   height: null,
 
   focus: Ember.observer('isEditing', function() {
-    Ember.run.later(this, function() {
-      if (this.get('isEditing')) {
-        this.set('originalValue', this.get('value'));
+    if (this.get('isEditing')) {
+      var height = this.$().css('height'),
+          width = this.$().css('width');
 
-        if (this.get('type') === 'input') {
-          this.$('input').focus();
-        } else {
-          this.$('textarea').css('height', this.get('height')).focus();
+      Ember.run.later(this, function() {
+        if (this.get('isEditing')) {
+          this.set('originalValue', this.get('value'));
+
+          if (this.get('type') === 'input') {
+            this.$('input').focus();
+          } else {
+            this.$('textarea').css({height: height, width: width}).focus();
+          }
+
+          this.sendAction('on-activated', this.$(), this.get('model'));
+
+          var _this = this;
+
+          this.$(this.get('type')).on('focusout', function() {
+            _this.send('doneEditing');
+          });
         }
-
-        this.sendAction('on-activated', this.$(), this.get('model'));
-
-        var _this = this;
-
-        this.$(this.get('type')).on('focusout', function() {
-          _this.send('doneEditing');
-        });
-      } else {
-        // Set height of editable div
-         this.set('height', this.$().css('height'));
-      }
-    });
+      });
+    }
   }),
 
   isTypeInput: Ember.computed('type', function() {

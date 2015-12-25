@@ -6,7 +6,6 @@
   value=sampleText1
   placeholder="Add Placeholder content"
   placeholderClass="placeholder div class"
-  editIcon="hidden"
 }}
 
 <h3>Handle activated event</h3>
@@ -28,15 +27,16 @@
 }}
 
 <h2>Single Textarea</h2>
-{{ember-inplace-edit
-  text=sampleText2
-  value=sampleText2
-  type="textarea"
-  placeholder="Add Placeholder content"
-  placeholderClass="placeholder div class"
-  editIcon="Edit icon class, ex: fa fa-edit"
-}}
-
+<div class="multi-line-text-wrapper">
+  {{ember-inplace-edit
+    text=multiLineText
+    value=multiLineText
+    type="textarea"
+    placeholder="Add Placeholder content"
+    placeholderClass="placeholder div class"
+    editIcon="Edit icon class, ex: fa fa-edit"
+  }}
+</div>
 
 <h2>Multiple Inputs</h2>
 <h3>Users:</h3>
