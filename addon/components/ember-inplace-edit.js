@@ -6,6 +6,7 @@ var $ = Ember.$;
 export default Ember.Component.extend({
   layout: layout,
   type: 'input',
+  disabled: false,
 
   keyPress: function(event){
     if(event.keyCode === 13 && this.get('type') !== "textarea"){
@@ -56,7 +57,9 @@ export default Ember.Component.extend({
 
   actions: {
     toggleEditing: function(){
-      this.toggleProperty('isEditing');
+      if (this.get('disabled') === false) {
+        this.toggleProperty('isEditing');
+      }
     },
     doneEditing: function(){
       if(this.get('isEditing') === true){

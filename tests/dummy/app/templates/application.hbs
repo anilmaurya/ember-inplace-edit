@@ -9,6 +9,13 @@
   editIcon="Edit icon class, ex: fa fa-edit"
 }}
 
+<h3>Disabled</h3>
+{{ember-inplace-edit
+  text='You can\'t touch this'
+  disabled=true
+  editIcon="hidden"
+}}
+
 <h2>Single Textarea</h2>
 {{ember-inplace-edit
   text=sampleText2
