@@ -39,7 +39,7 @@ export default Ember.Component.extend({
         });
       }else{
         // Set height of editable div
-         this.set('height', this.$().parent().css('height'));
+         this.set('height', this.$().css('height'));
       }
     });
   }),
