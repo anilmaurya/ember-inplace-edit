@@ -16,11 +16,11 @@
       {{text}}
     {{/if}}
   </span>
-  <span class="edit hide">
+  <span class="edit hide {{if disabled 'edit-button-disabled' ''}}">
     {{#if editIcon}}
       <a {{action "startEditing"}} class={{editIcon}}></a>
     {{else}}
-      <button {{action "startEditing"}} >edit</button>
+      <button {{action "startEditing"}}>edit</button>
     {{/if}}
   </span>
 {{/if}}
