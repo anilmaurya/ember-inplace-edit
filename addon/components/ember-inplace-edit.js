@@ -1,75 +1,82 @@
 import Ember from 'ember';
 import layout from '../templates/components/ember-inplace-edit';
 
+var $ = Ember.$;
+
 export default Ember.Component.extend({
   layout: layout,
+  type: 'input',
+  disabled: false,
+  originalValue: null,
 
-  didInsertElement: function(){
-    var _this = this;
-    if(this.get('type') === 'input'){
-      $('body').on('focusout', "#"+this.get("elementId")+" input", function(){
-        _this.send('doneEditing');
-      });
-    }else{
-      $('body').on('focusout', "#"+this.get("elementId")+" textarea", function(){
-        _this.send('doneEditing');
-      });
+  keyUp: function(event) {
+    if (event.keyCode === 13 && this.get('type') !== "textarea") {
+      this.send('doneEditing');
     }
-    this.focus();
-  },
 
-  keyPress: function(event){
-    if(event.keyCode == 13){
-      this.toggleProperty('isEditing');
-      this.sendAction();
+    if (event.keyCode === 27) {
+      this.set('value', this.get('originalValue'));
+      this.set('isEditing', false);
     }
   },
 
-  mouseEnter: function(){
-    $("#"+this.get("elementId")+" .edit").removeClass('hide');
+  mouseEnter: function() {
+    $("#" + this.get("elementId") + " .edit").removeClass('hide');
   },
 
-  mouseLeave: function(){
-    $("#"+this.get("elementId")+" .edit").addClass('hide');
+  mouseLeave: function() {
+    $("#" + this.get("elementId") + " .edit").addClass('hide');
   },
 
   height: null,
 
-  focus: function(){
-    var _this = this;
-    Ember.run.scheduleOnce('afterRender', this, function(){
-      if(_this.get('isEditing')){
-        if(_this.get('type') === 'input'){
-          $("#"+_this.get("elementId")+" input").focus();
-        }else{
-          $("#"+_this.get("elementId")+" textarea").css('height', _this.get('height'));
-          $("#"+this.get("elementId")+" textarea").focus();
+  focus: Ember.observer('isEditing', function() {
+    if (this.get('isEditing')) {
+      var height = this.$().css('height'),
+          width = this.$().css('width');
+
+      Ember.run.later(this, function() {
+        if (this.get('isEditing')) {
+          this.set('originalValue', this.get('value'));
+
+          if (this.get('type') === 'input') {
+            this.$('input').focus();
+          } else {
+            this.$('textarea').css({height: height, width: width}).focus();
+          }
+
+          this.sendAction('on-activated', this.$(), this.get('model'));
+
+          var _this = this;
+
+          this.$(this.get('type')).on('focusout', function() {
+            _this.send('doneEditing');
+          });
         }
-      }else{
-        // Set height of editable div
-         _this.set('height', $("#"+_this.get("elementId")).parent().css('height'));
-      }
-     })
-  }.observes('isEditing'),
+      });
+    }
+  }),
 
-  isTypeInput: function(){
+  isTypeInput: Ember.computed('type', function() {
     return this.get('type') === "input";
-  }.property('type'),
+  }),
 
-  displayPlaceholder: function(){
-    var text = this.get('text');
-    text = text && text.replace( / +/g, ' '); // replace mutiple space with single space
+  displayPlaceholder: Ember.computed('text', function() {
+    var text = this.get('text').toString();
+    text = text && text.replace(/ +/g, ' '); // replace mutiple space with single space
     return text === undefined || text === null || text === "" || text === " ";
-  }.property('text'),
+  }),
 
   actions: {
-    toggleEditing: function(){
-      this.toggleProperty('isEditing');
+    startEditing: function() {
+      if (this.get('disabled') === false) {
+        this.set('isEditing', true);
+      }
     },
-    doneEditing: function(){
-      if(this.get('isEditing') == true){
-        this.toggleProperty('isEditing');
-        this.sendAction();
+    doneEditing: function() {
+      if (this.get('isEditing') === true) {
+        this.set('isEditing', false);
+        this.sendAction('action', this.get('model'), this.get('value'));
       }
     }
   }
