@@ -38,18 +38,16 @@ export default Ember.Component.extend({
   height: null,
 
   focus: Ember.observer('isEditing', function() {
-    var _this = this;
     Ember.run.later(this, function(){
-      if(_this.get('isEditing')){
-        if(_this.get('type') === 'input'){
-          $("#"+_this.get("elementId")+" input").focus();
+      if(this.get('isEditing')){
+        if(this.get('type') === 'input'){
+          this.$('input').focus();
         }else{
-          $("#"+_this.get("elementId")+" textarea").css('height', _this.get('height'));
-          $("#"+this.get("elementId")+" textarea").focus();
+          this.$('textarea').css('height', this.get('height')).focus();
         }
       }else{
         // Set height of editable div
-         _this.set('height', $("#"+_this.get("elementId")).parent().css('height'));
+         this.set('height', this.$().parent().css('height'));
       }
     });
   }),
