@@ -8,6 +8,8 @@ export default Ember.Component.extend({
   type: 'input',
   disabled: false,
   originalValue: null,
+  staticAutoResize: true,
+  dynamicAutoResize: false,
 
   keyUp: function(event) {
     if (event.keyCode === 13 && this.get('type') !== "textarea") {
@@ -32,8 +34,10 @@ export default Ember.Component.extend({
 
   focus: Ember.observer('isEditing', function() {
     if (this.get('isEditing')) {
-      var height = this.$().css('height'),
-          width = this.$().css('width');
+      if (this.get('staticAutoResize')) {
+        var height = this.$().css('height'),
+            width = this.$().css('width');
+      }
 
       Ember.run.later(this, function() {
         if (this.get('isEditing')) {
@@ -42,7 +46,11 @@ export default Ember.Component.extend({
           if (this.get('type') === 'input') {
             this.$('input').focus();
           } else {
-            this.$('textarea').css({height: height, width: width}).focus();
+            if (this.get('staticAutoResize')) {
+              this.$('textarea').css({height: height, width: width}).focus();
+            } else {
+              this.$('textarea').focus();
+            }
           }
 
           this.sendAction('on-activated', this.$(), this.get('model'));
