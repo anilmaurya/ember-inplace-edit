@@ -8,6 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('demo-input');
   this.route('demo-textarea');
+  this.route('demo-autoresize');
 });
 
 export default Router;

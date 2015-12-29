@@ -1,0 +1,67 @@
+<h2>Autoresize examples</h2>
+<h3>Dynamic resize</h3>
+<p>It uses the <a href="https://github.com/tim-evans/ember-autoresize" target="_blank">Ember AutoResize</a> addon. You can install it: <em>ember install ember-autoresize</em>. And then set staticAutoResize to false and dynamicAutoResize to true.</p>
+<div class="row examples-header">
+  <div class="col-lg-6 col-md-6 col-sm-6">Output</div>
+  <div class="col-lg-6 col-md-6 col-sm-6">Code</div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="multi-line-text-wrapper">
+      {{ember-inplace-edit
+        text=(nl2br multiLineText)
+        value=multiLineText
+        type="textarea"
+        placeholder="Add Placeholder content"
+        placeholderClass="placeholder div class"
+        editIcon="hide"
+        staticAutoResize=false
+        dynamicAutoResize=true
+      }}
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+{{#code-block language='handlebars'}}\{{ember-inplace-edit
+  text=(nl2br multiLineText)
+  value=multiLineText
+  type="textarea"
+  placeholder="Add Placeholder content"
+  placeholderClass="placeholder div class"
+  editIcon="hide"
+  staticAutoResize=false
+  dynamicAutoResize=true
+}}{{/code-block}}
+  </div>
+</div>
+
+<h3>Static resize</h3>
+<p>This is the default behavoiur, it sets the height and the widht of the textarea right after the editing has been started, but it wont update as content changes.</p>
+<div class="row examples-header">
+  <div class="col-lg-6 col-md-6 col-sm-6">Output</div>
+  <div class="col-lg-6 col-md-6 col-sm-6">Code</div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="multi-line-text-wrapper">
+      {{ember-inplace-edit
+        text=(nl2br multiLineText2)
+        value=multiLineText2
+        type="textarea"
+        placeholder="Add Placeholder content"
+        placeholderClass="placeholder div class"
+        editIcon="hide"
+      }}
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+{{#code-block language='handlebars'}}\{{ember-inplace-edit
+  text=(nl2br multiLineText2)
+  value=multiLineText2
+  type="textarea"
+  placeholder="Add Placeholder content"
+  placeholderClass="placeholder div class"
+  editIcon="hide"
+}}{{/code-block}}
+  </div>
+</div>
