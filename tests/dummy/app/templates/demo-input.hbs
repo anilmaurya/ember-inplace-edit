@@ -1,0 +1,112 @@
+<h2>Simple input examples</h2>
+<div class="row examples-header">
+  <div class="col-lg-6 col-md-6 col-sm-6">Output</div>
+  <div class="col-lg-6 col-md-6 col-sm-6">Code</div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    {{ember-inplace-edit
+      text=sampleText1
+      value=sampleText1
+      placeholder="Add Placeholder content"
+      placeholderClass="placeholder div class"
+    }}
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+{{#code-block language='handlebars'}}\{{ember-inplace-edit
+  text=sampleText1
+  value=sampleText1
+  placeholder="Add Placeholder content"
+  placeholderClass="placeholder div class"
+}}{{/code-block}}
+  </div>
+</div>
+
+<h3>Handle activated event</h3>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    {{ember-inplace-edit
+      text=sampleText1
+      value=sampleText1
+      placeholder="Add Placeholder content"
+      placeholderClass="placeholder div class"
+      editIcon="hidden"
+      on-activated="inputActivated"
+    }}
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <h4>Controller action</h4>
+{{#code-block language='js'}}inputActivated($container) {
+  $container.addClass('activated');
+}{{/code-block}}
+    <h4>Handlebars template</h4>
+{{#code-block language='handlebars'}}\{{ember-inplace-edit
+  text=sampleText1
+  value=sampleText1
+  placeholder="Add Placeholder content"
+  placeholderClass="placeholder div class"
+  editIcon="hidden"
+  on-activated="inputActivated"
+}}{{/code-block}}
+  </div>
+</div>
+
+
+<h3>Disabled</h3>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    {{ember-inplace-edit
+      text='You can\'t touch this'
+      disabled=true
+    }}
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+{{#code-block language='handlebars'}}\{{ember-inplace-edit
+  text='You can\'t touch this'
+  disabled=true
+}}{{/code-block}}
+  </div>
+</div>
+
+<h3>Send model with the action hook</h3>
+<h4>Users:</h4>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <ul>
+      {{#each users as |user|}}
+        <li>
+          {{ember-inplace-edit
+            text=user.name
+            value=user.name
+            model=user
+            placeholder="User name"
+            action="updateUser"
+            editIcon="hidden"
+          }}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <h4>Controller action</h4>
+{{#code-block language='js'}}updateUser(model, newValue) {
+  console.log('User updated: ', model);
+  console.log('New value: ', newValue);
+}{{/code-block}}
+    <h4>Handlebars template</h4>
+{{#code-block language='handlebars'}}&lt;ul&gt;
+  \{{#each users as |user|}}
+    &lt;li&gt;
+      \{{ember-inplace-edit
+        text=user.name
+        value=user.name
+        model=user
+        placeholder="User name"
+        action="updateUser"
+        editIcon="hidden"
+      }}
+    &lt;/li&gt;
+  \{{/each}}
+&lt;ul&gt;{{/code-block}}
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<h2>Simple textarea examples</h2>
+<div class="row examples-header">
+  <div class="col-lg-6 col-md-6 col-sm-6">Output</div>
+  <div class="col-lg-6 col-md-6 col-sm-6">Code</div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="multi-line-text-wrapper">
+      {{ember-inplace-edit
+        text=multiLineText
+        value=multiLineText
+        type="textarea"
+        placeholder="Add Placeholder content"
+        placeholderClass="placeholder div class"
+        editIcon="Edit icon class, ex: fa fa-edit"
+      }}
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+{{#code-block language='handlebars'}}\{{ember-inplace-edit
+  text=multiLineText
+  value=multiLineText
+  type="textarea"
+  placeholder="Add Placeholder content"
+  placeholderClass="placeholder div class"
+  editIcon="hide"
+}}{{/code-block}}
+  </div>
+</div>
+
+<h3>Using nl2br helper to preserve line breaks in HTML</h3>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="multi-line-text-wrapper">
+      {{ember-inplace-edit
+        text=(nl2br multiLineText2)
+        value=multiLineText2
+        type="textarea"
+        placeholder="Add Placeholder content"
+        placeholderClass="placeholder div class"
+        editIcon="hide"
+      }}
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+{{#code-block language='handlebars'}}\{{ember-inplace-edit
+  text=(nl2br multiLineText2)
+  value=multiLineText2
+  type="textarea"
+  placeholder="Add Placeholder content"
+  placeholderClass="placeholder div class"
+  editIcon="hide"
+}}{{/code-block}}
+  </div>
+</div>

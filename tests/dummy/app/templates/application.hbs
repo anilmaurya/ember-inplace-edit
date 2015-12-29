@@ -1,71 +1,20 @@
-<h1>Ember-inplace-edit Demo</h1>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <div class="navbar-brand">Ember-inplace-edit Demo</div>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+        <li>{{#link-to 'demo-input'}}Input{{/link-to}}</li>
+        <li>{{#link-to 'demo-textarea'}}Textarea{{/link-to}}</li>
+      </ul>
+      <div class="navbar-right">
+        <a href="https://github.com/anilmaurya/ember-inplace-edit" target="_blank" class="btn btn-sm btn-info">GitHub</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
-<h2>Single Input</h2>
-{{ember-inplace-edit
-  text=sampleText1
-  value=sampleText1
-  placeholder="Add Placeholder content"
-  placeholderClass="placeholder div class"
-}}
-
-<h3>Handle activated event</h3>
-{{ember-inplace-edit
-  text=sampleText1
-  value=sampleText1
-  placeholder="Add Placeholder content"
-  placeholderClass="placeholder div class"
-  editIcon="hidden"
-  on-activated="inputActivated"
-}}
-
-
-<h3>Disabled</h3>
-{{ember-inplace-edit
-  text='You can\'t touch this'
-  disabled=true
-}}
-
-<h2>Single Textarea</h2>
-<div class="multi-line-text-wrapper">
-  {{ember-inplace-edit
-    text=multiLineText
-    value=multiLineText
-    type="textarea"
-    placeholder="Add Placeholder content"
-    placeholderClass="placeholder div class"
-    editIcon="Edit icon class, ex: fa fa-edit"
-  }}
+<div class="container">
+  {{outlet}}
 </div>
-
-<h3>Using nl2br helper to preserve line breaks in HTML</h3>
-<div class="multi-line-text-wrapper">
-  {{ember-inplace-edit
-    text=(nl2br multiLineText2)
-    value=multiLineText2
-    type="textarea"
-    placeholder="Add Placeholder content"
-    placeholderClass="placeholder div class"
-    editIcon="Edit icon class, ex: fa fa-edit"
-  }}
-</div>
-
-
-<h2>Multiple Inputs</h2>
-<h3>Users:</h3>
-<ul>
-  {{#each users as |user|}}
-    <li>
-      {{ember-inplace-edit
-        text=user.name
-        value=user.name
-        model=user
-        placeholder="User name"
-        action="updateUser"
-        editIcon="hidden"
-      }}
-    </li>
-  {{/each}}
-</ul>
-
-
-{{outlet}}
