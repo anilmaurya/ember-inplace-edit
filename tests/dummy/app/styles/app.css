@@ -1,6 +1,10 @@
 .navbar {
   border-radius: 0;
 }
+.navbar .active{
+  color: #fff !important;
+  background-color: #080808 !important;
+}
 
 .activated {
   background-color: gray;
