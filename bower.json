@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "bootstrap": "~3.3.6"
+  },
+  "resolutions": {
+    "ember": "1.13.7"
   }
 }
