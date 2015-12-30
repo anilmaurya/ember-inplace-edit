@@ -2,7 +2,7 @@
 
 This is Ember cli addon for inplace editing
 
-[Demo](http://anilmaurya.github.io/ember-inplace-edit)
+<a href="http://anilmaurya.github.io/ember-inplace-edit" target="_blank"> Demo </a>
 
 ## Installation
 
