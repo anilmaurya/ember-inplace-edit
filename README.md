@@ -6,7 +6,10 @@ This is Ember cli addon for inplace editing
 
 ## Installation
 
-* `npm install --save-dev ember-inplace-edit`
+* `ember install ember-inplace-edit`
+
+## Released Version
+- 0.0.9 https://github.com/anilmaurya/ember-inplace-edit/tree/v0.0.9
 
 ## Usage
  This addon provides an `ember-inplace-edit` component.
