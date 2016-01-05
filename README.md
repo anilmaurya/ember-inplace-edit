@@ -42,11 +42,11 @@ This is Ember cli addon for inplace editing
   </tr>
   <tr>
     <td valign="top"><code>type</code></td>
-    <td valign="top">input/textarea (default: 'input', optional)</td>
+    <td valign="top">input/textarea (default: 'input')</td>
   </tr>
   <tr>
     <td valign="top"><code>disabled</code></td>
-    <td valign="top">disable editing (default: false, optional)</td>
+    <td valign="top">disable editing (default: false)</td>
   </tr>
   <tr>
     <td valign="top"><code>model</code></td>
@@ -54,11 +54,11 @@ This is Ember cli addon for inplace editing
   </tr>
   <tr>
     <td valign="top"><code>staticAutoResize</code></td>
-    <td valign="top">set the width and height of the textarea automatically after editing started (default: true, optional)</td>
+    <td valign="top">set the width and height of the textarea automatically after editing started (default: true)</td>
   </tr>
   <tr>
     <td valign="top"><code>dynamicAutoResize</code></td>
-    <td valign="top">sets the autoresize value to true on the input or textearea, if you install the `ember-autoresize` addon the size of the inputs will change as the content changes (default: false, optional)</td>
+    <td valign="top">sets the autoresize value to true on the input or textearea, if you install the `ember-autoresize` addon the size of the inputs will change as the content changes (default: false)</td>
   </tr>
   <tr>
     <td valign="top"><code>placeholder</code></td>
