@@ -1,9 +1,9 @@
 {{#if isEditing}}
   <form {{action "doneEditing" on="submit"}}>
     {{#if isTypeInput}}
-      {{input value=value autoresize=dynamicAutoResize}}
+      {{input value=value autoresize=autoResize}}
     {{else}}
-      {{textarea value=value autoresize=dynamicAutoResize}}
+      {{textarea value=value autoresize=autoResize}}
     {{/if}}
   </form>
 {{else}}

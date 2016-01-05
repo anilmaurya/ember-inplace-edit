@@ -53,12 +53,8 @@ This is Ember cli addon for inplace editing
     <td valign="top">this will be sent automatically in the action hook (optional)</td>
   </tr>
   <tr>
-    <td valign="top"><code>staticAutoResize</code></td>
-    <td valign="top">set the width and height of the textarea automatically after editing started (default: true)</td>
-  </tr>
-  <tr>
-    <td valign="top"><code>dynamicAutoResize</code></td>
-    <td valign="top">sets the autoresize value to true on the input or textearea, if you install the `ember-autoresize` addon the size of the inputs will change as the content changes (default: false)</td>
+    <td valign="top"><code>autoResize</code></td>
+    <td valign="top">If it is false then it will set the width and height of the textarea after editing started, otherwise it will change the size on the fly when you are typing if the `ember-autoresize` addon is installed (default: false)</td>
   </tr>
   <tr>
     <td valign="top"><code>placeholder</code></td>

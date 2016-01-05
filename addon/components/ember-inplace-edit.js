@@ -8,8 +8,7 @@ export default Ember.Component.extend({
   type: 'input',
   disabled: false,
   originalValue: null,
-  staticAutoResize: true,
-  dynamicAutoResize: false,
+  autoResize: false,
 
   keyUp: function(event) {
     if (event.keyCode === 13 && this.get('type') !== "textarea") {
@@ -34,7 +33,7 @@ export default Ember.Component.extend({
 
   focus: Ember.observer('isEditing', function() {
     if (this.get('isEditing')) {
-      if (this.get('staticAutoResize')) {
+      if (!this.get('autoResize')) {
         var height = this.$().css('height'),
             width = this.$().css('width');
       }
@@ -46,10 +45,10 @@ export default Ember.Component.extend({
           if (this.get('type') === 'input') {
             this.$('input').focus();
           } else {
-            if (this.get('staticAutoResize')) {
-              this.$('textarea').css({height: height, width: width}).focus();
-            } else {
+            if (this.get('autoResize')) {
               this.$('textarea').focus();
+            } else {
+              this.$('textarea').css({height: height, width: width}).focus();
             }
           }
 

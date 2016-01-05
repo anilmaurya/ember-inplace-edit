@@ -1,6 +1,6 @@
 <h2>Autoresize examples</h2>
-<h3>Dynamic resize</h3>
-<p>It uses the <a href="https://github.com/tim-evans/ember-autoresize" target="_blank">Ember AutoResize</a> addon. You can install it: <em>ember install ember-autoresize</em>. And then set staticAutoResize to false and dynamicAutoResize to true.</p>
+<h3>Dynamic auto resize</h3>
+<p>It uses the <a href="https://github.com/tim-evans/ember-autoresize" target="_blank">Ember AutoResize</a> addon. You can install it: <em>ember install ember-autoresize</em>. And then set autoResize property to true.</p>
 <div class="row examples-header">
   <div class="col-lg-6 col-md-6 col-sm-6">Output</div>
   <div class="col-lg-6 col-md-6 col-sm-6">Code</div>
@@ -15,8 +15,7 @@
         placeholder="Add Placeholder content"
         placeholderClass="placeholder div class"
         editIcon="hide"
-        staticAutoResize=false
-        dynamicAutoResize=true
+        autoResize=true
       }}
     </div>
   </div>
@@ -28,14 +27,13 @@
   placeholder="Add Placeholder content"
   placeholderClass="placeholder div class"
   editIcon="hide"
-  staticAutoResize=false
-  dynamicAutoResize=true
+  autoResize=true
 }}{{/code-block}}
   </div>
 </div>
 
 <h3>Static resize</h3>
-<p>This is the default behavoiur, it sets the height and the widht of the textarea right after the editing has been started, but it wont update as content changes.</p>
+<p>This is the default behavoiur, it sets the height and the widht of the textarea right after the editing has been started, but it won't update them as content changes.</p>
 <div class="row examples-header">
   <div class="col-lg-6 col-md-6 col-sm-6">Output</div>
   <div class="col-lg-6 col-md-6 col-sm-6">Code</div>
