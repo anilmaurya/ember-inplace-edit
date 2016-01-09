@@ -1,6 +1,6 @@
 {
   "name": "ember-inplace-edit",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Ember cli addon for inplace editing",
   "directories": {
     "doc": "doc",
