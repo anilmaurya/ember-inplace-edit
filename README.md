@@ -1,4 +1,4 @@
-# ember-inplace-edit [![npm version](https://badge.fury.io/js/ember-inplace-edit.svg)](https://badge.fury.io/js/ember-inplace-edit)
+# ember-inplace-edit [![npm version](https://badge.fury.io/js/ember-inplace-edit.svg)](https://badge.fury.io/js/ember-inplace-edit) [![Build Status](https://travis-ci.org/anilmaurya/ember-inplace-edit.svg?branch=master)](https://travis-ci.org/anilmaurya/ember-inplace-edit)
 
 This is Ember cli addon for inplace editing
 
