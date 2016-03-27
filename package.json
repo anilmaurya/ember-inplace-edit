@@ -16,6 +16,13 @@
     "node": ">= 0.10.0"
   },
   "author": "anilmaurya",
+  "contributors": [
+    {
+      "name" : "Peter Toth",
+      "email" : "tothpeter08@gmail.com",
+      "url" : "http://kalina.tech"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.1.2",
