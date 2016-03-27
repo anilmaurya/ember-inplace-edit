@@ -1,8 +1,6 @@
 import Ember from 'ember';
 import layout from '../templates/components/ember-inplace-edit';
 
-var $ = Ember.$;
-
 export default Ember.Component.extend({
   layout: layout,
   type: 'input',
@@ -22,11 +20,11 @@ export default Ember.Component.extend({
   },
 
   mouseEnter: function() {
-    $("#" + this.get("elementId") + " .edit").removeClass('hide');
+    this.$('.edit').removeClass('hide');
   },
 
   mouseLeave: function() {
-    $("#" + this.get("elementId") + " .edit").addClass('hide');
+    this.$('.edit').addClass('hide');
   },
 
   height: null,
