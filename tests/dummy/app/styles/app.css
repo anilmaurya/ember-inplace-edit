@@ -25,3 +25,14 @@
 textarea {
   width: 100%;
 }
+
+.address-inputs .ember-view {
+  display: inline-block;
+}
+
+.address-inputs .ember-view input,
+.address-inputs .ember-view input:focus {
+  border: none;
+  padding: 0;
+  outline: none;
+}
