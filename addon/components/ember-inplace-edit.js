@@ -29,6 +29,10 @@ export default Ember.Component.extend({
 
   height: null,
 
+  focusOut: function() {
+    this.send('doneEditing');
+  },
+
   focus: Ember.observer('isEditing', function() {
     if (this.get('isEditing')) {
       if (!this.get('autoResize')) {
@@ -52,11 +56,6 @@ export default Ember.Component.extend({
 
           this.sendAction('on-activated', this.$(), this.get('model'));
 
-          var _this = this;
-
-          this.$(this.get('type')).on('focusout', function() {
-            _this.send('doneEditing');
-          });
         }
       });
     }
