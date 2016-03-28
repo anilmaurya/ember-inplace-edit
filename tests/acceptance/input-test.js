@@ -17,7 +17,7 @@ test('show edit button on hover', function(assert) {
 
   andThen(function() {
     assert.equal(find('.examples-header~.row:first .edit').hasClass('hide'), true);
-    triggerEvent('.examples-header~.row:first .edit-box', 'mouseenter');
+    $('.examples-header~.row:first .edit-box').mouseenter();
     andThen(function(){
       assert.equal(find('.examples-header~.row:first .edit').hasClass('hide'), false);
     });
@@ -47,7 +47,7 @@ test('edit text', function(assert) {
       click('.examples-header~.row:first .edit button');
       andThen(function(){
         fillIn('.examples-header~.row:first input', 'Updated content');
-        triggerEvent('.examples-header~.row:first input', 'focusout');
+        $('.examples-header~.row:first input').focusout();
         andThen(function(){
           assert.equal(find('.examples-header~.row:first .edit-box').text().trim(), 'Updated content');
         });

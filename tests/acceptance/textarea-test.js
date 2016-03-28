@@ -14,13 +14,14 @@ module('Acceptance | textarea', {
 
 test('edit text', function(assert) {
   visit('/demo-textarea');
-
+  andThen(function() {
   click('.multi-line-text-wrapper:first .edit-box');
-
+  andThen(function() {
   fillIn('.multi-line-text-wrapper:first textarea', 'Updated content');
-  triggerEvent('.multi-line-text-wrapper:first textarea', 'focusout');
-
+  $('.multi-line-text-wrapper:first textarea').focusout();
   andThen(function() {
     assert.equal(find('.multi-line-text-wrapper:first .edit-box').text().trim(), 'Updated content', 'The text has been updated correctly');
   });
+});
+});
 });
