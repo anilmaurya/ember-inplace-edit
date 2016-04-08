@@ -23,6 +23,10 @@ export default Ember.Component.extend({
     this.$('.edit').removeClass('hide');
   },
 
+  touchEnd: function() {
+    this.send('startEditing');
+  },
+
   mouseLeave: function() {
     this.$('.edit').addClass('hide');
   },
