@@ -31,8 +31,6 @@ export default Ember.Component.extend({
     this.$('.edit').addClass('hide');
   },
 
-  height: null,
-
   focusOut: function() {
     this.send('doneEditing');
   },
