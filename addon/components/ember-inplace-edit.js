@@ -8,6 +8,14 @@ export default Ember.Component.extend({
   originalValue: null,
   autoResize: false,
 
+  isTypeInput: Ember.computed('type', function() {
+    return this.get('type') === "input";
+  }),
+
+  displayPlaceholder: Ember.computed('text', function() {
+    return Ember.isBlank(this.get('text'));
+  }),
+
   keyUp: function(event) {
     if (event.keyCode === 13 && this.get('type') !== "textarea") {
       this.send('doneEditing');
@@ -23,56 +31,49 @@ export default Ember.Component.extend({
     this.$('.edit').removeClass('hide');
   },
 
+  touchEnd: function() {
+    this.send('startEditing');
+  },
+
   mouseLeave: function() {
     this.$('.edit').addClass('hide');
   },
-
-  height: null,
 
   focusOut: function() {
     this.send('doneEditing');
   },
 
-  focus: Ember.observer('isEditing', function() {
-    if (this.get('isEditing')) {
-      if (!this.get('autoResize')) {
-        var height = this.$().css('height'),
-            width = this.$().css('width');
-      }
-
-      Ember.run.later(this, function() {
-        if (this.get('isEditing')) {
-          this.set('originalValue', this.get('value'));
-
-          if (this.get('type') === 'input') {
-            this.$('input').focus();
-          } else {
-            if (this.get('autoResize')) {
-              this.$('textarea').focus();
-            } else {
-              this.$('textarea').css({height: height, width: width}).focus();
-            }
-          }
-
-          this.sendAction('on-activated', this.$(), this.get('model'));
-
-        }
-      });
+  handleFocus: function() {
+    if (!this.get('autoResize')) {
+      var height = this.$().css('height'),
+          width = this.$().css('width');
     }
-  }),
 
-  isTypeInput: Ember.computed('type', function() {
-    return this.get('type') === "input";
-  }),
+    Ember.run.later(this, function() {
+      if (this.get('isEditing')) {
+        this.set('originalValue', this.get('value'));
 
-  displayPlaceholder: Ember.computed('text', function() {
-    return Ember.isBlank(this.get('text'));
-  }),
+        if (this.get('type') === 'input') {
+          this.$('input').focus();
+        } else {
+          if (this.get('autoResize')) {
+            this.$('textarea').focus();
+          } else {
+            this.$('textarea').css({height: height, width: width}).focus();
+          }
+        }
+
+        this.sendAction('on-activated', this.$(), this.get('model'));
+
+      }
+    });
+  },
 
   actions: {
     startEditing: function() {
       if (this.get('disabled') === false) {
         this.set('isEditing', true);
+        this.handleFocus();
       }
     },
     doneEditing: function() {
